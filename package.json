@@ -1,0 +1,25 @@
+{
+  "name": "food-ordering-site",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Food ordering platform",
+  "scripts": {
+    "server": "node backend/server.js",
+    "client": "cd frontend && npm run dev",
+    "build": "cd frontend && npm install && npm run build",
+    "start": "node server-production.js",
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "test-deployment": "node test-deployment.js",
+    "deploy:docker": "docker build -t food-ordering-app . && docker run -p 5000:5000 -e NODE_ENV=production food-ordering-app",
+    "deploy:vercel": "cd frontend && vercel --prod",
+    "deploy:netlify": "cd frontend && netlify deploy --prod"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}
